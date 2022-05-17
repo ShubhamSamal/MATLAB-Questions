@@ -1,0 +1,11 @@
+function matrix = sparse2matrix(c)
+for i = 1:length(c)
+    if i == 1 
+        matrix = c{i+1}*ones(c{i}(1),c{i}(2));    
+    elseif i == 2
+        continue;
+    elseif i<=length(c)
+        matrix(c{i}(1),c{i}(2)) = c{i}(3);   
+    end
+end
+end
