@@ -1,0 +1,22 @@
+function charnum = char_counter(fname,x)
+fid = fopen(fname,'rt');
+count = 0;
+if fid<0
+    charnum = -1;
+    return;
+end
+if ~ischar(x)
+    charnum = -1;
+    return;
+end
+line = fgets(fid);
+while ischar(line)
+    for i =1:length(line)
+        if line(i) == x
+            count = count + 1;
+        end
+    end
+    line = fgets(fid);
+end
+charnum = count;
+end
