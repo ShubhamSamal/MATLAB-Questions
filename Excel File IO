@@ -1,0 +1,27 @@
+function distance = get_distance(c1,c2)
+[~, ~, t] = xlsread('Distances.xlsx');
+r = size(t);
+
+% Finding the distance between two cities 
+for i = 1:r(1)
+    if strcmp(c1,t{i,1})
+        index1 = i;
+        break;
+    else
+        index1 = 0;
+    end
+end
+for j = 1:r(2)
+    if strcmp(c2,t{1,j})
+        index2 = j;
+        break;
+    else
+        index2 = 0;
+    end
+end
+if index1 == 0 || index2 ==0 % If given input arguments are not present in the file 
+    distance = -1;
+else
+    distance = t{index1,index2};
+end
+end
